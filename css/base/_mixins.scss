@@ -1,0 +1,20 @@
+// Other
+@mixin margin-fix {
+	> *:first-child {
+		margin-top:0;
+	}
+	> *:last-child {
+		margin-bottom:0;
+	}
+}
+
+//Images
+@mixin img-center {
+	display:block;
+	margin:0  auto;
+}
+
+// Gradient color
+@mixin linear-gradient($direction) {
+	background-image: linear-gradient($direction, $blue1, $blue2, $blue3);
+}

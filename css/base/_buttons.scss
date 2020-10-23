@@ -1,0 +1,73 @@
+$btn-color:$white;
+$btn-alt-color:$base-color;
+%button {
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  border-radius: $base-border-radius;
+  color: $blue;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.80em 1em;
+  border-radius: 10px;
+  text-decoration: none;
+  text-transform: capitalize;
+  text-align: center;
+  @include transition(all 0.5s ease);
+  // &:hover {
+  //   color: $white;
+  // }
+  // &:disabled {
+  //   cursor: not-allowed;
+  //   opacity: 0.5;
+  // }
+  // &:after {
+  //   content: '';
+  // }
+}
+
+.btn {
+  @extend %button;
+  // background-color: $btn-color;
+  &:hover {
+    box-shadow: 1px 1px 5px $dark-gray;
+  }
+}
+
+// button,
+// input[type="submit"] {
+//   @include appearance(none);
+//   border: none;
+//   cursor: pointer;
+//   user-select: none;
+//   vertical-align: middle;
+//   white-space: nowrap;
+//   &:focus:not(:hover):not(:active) {
+//     outline: 2px dashed $base-font-color;
+//     outline-offset: 2px;
+//   }
+// }
+
+//Icon Buttons
+%btn-ico {
+  @extend %button;
+  padding-right: 4em;
+  &:after {
+    content: '';
+    display: block;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3em;
+    position: absolute;
+    background-position: center center;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    @include transition(background 0.1s linear);
+  }
+  &:hover {
+    &:after {
+      background-size: 2em;
+    }
+  }
+}

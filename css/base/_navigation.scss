@@ -1,0 +1,83 @@
+//Site Nav Container
+.site-nav-container {
+  float: right;
+
+  @include mq(medium) {
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    top: 0;
+    left: 0;
+  }
+
+  .site-hamburger {
+    cursor: pointer;
+    z-index: 10000;
+    position: absolute;
+    right: 5%;
+    top: 25px;
+    @include mq(medium) {
+      display: none;
+    }
+    
+    .bar {
+      content: '';
+      width: 36px;
+      margin: 5px 0;
+      border-radius: 5px;
+      display: block;
+      background-color: $blue;
+      font-size: 3px;
+      text-indent: -99999px;
+      transition: all .5s ease;
+
+      &.bar-three {
+        width: 18px; 
+        margin: 0;
+        float: right;
+      }
+    
+      &.bar-one { width: 18px; }
+    }
+  }
+
+  .open {
+    .bar-one {
+      background-color: $white;
+      transform: rotate(45deg) translatex(3px); 
+    }
+    .bar-two {
+      background-color: $white;
+      transform: rotate(-45deg);
+    }
+
+    .bar-three {
+      background-color: $white;
+      transform: rotate(45deg) translatex(-3px); 
+    }
+  }
+
+  .site-nav {
+    background-image: $nav-background-mobile;
+    width: $nav-width-mobile;
+    height: 100vh;
+    right: -$nav-width-mobile;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    position: absolute;
+    @include transition(all .25s ease-in-out);
+    &.show-menu {
+      right: 0;
+    }
+    @include mq(medium) {
+      width: auto;
+      height: auto;
+      right: auto;
+      bottom: auto;
+      top: auto;
+      position: static;
+      background-color: transparent;
+    }
+  }
+}
